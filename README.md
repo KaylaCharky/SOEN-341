@@ -1,3 +1,5 @@
 # SOEN-341
 Group Project for class SOEN 341 - Software Process 
-Name : Olivier Su Email: olivier_su_@hotmail.com Git: olivier-su
+
+Name: Kevin Marsolais ID: 40093476 Email: kmarsolais@hotmail.ca GitHub: kmarsolais
+Name : Olivier Su ID: 27005458 Email: olivier_su_@hotmail.com GitHub: olivier-su
