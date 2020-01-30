@@ -7,7 +7,9 @@ Develop a web application similar to Instagram.
 
 ## Project
 
-Instagram is a social media platform for the sharing of pictures and moments that people enjoy. This web application allows for the user to post pictures, follow other user's profile's to see all tehir friend's pictures and like or comment on the photos to show appreciation. 
+Instagram is a social media platform for the sharing of pictures and moments that people enjoy. This web application allows for the user to post pictures, follow other user's profile's to see all their friend's pictures and like or comment on the photos to show appreciation. 
+
+Additional features are still to be decided. 
 
 # Team Members
 
