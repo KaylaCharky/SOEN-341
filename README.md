@@ -21,5 +21,5 @@ Additional features are still to be decided.
 
 # Technologies
 
-FrontEnd - React, bootstrap
-Backend - Node.JS
+* FrontEnd - React, bootstrap
+* Backend - Node.JS
