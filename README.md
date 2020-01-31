@@ -18,6 +18,7 @@ Additional features are still to be decided.
 * Name: Kayla Charky ID: 40099475 Email: KaylaCharky@hotmail.com GitHub: KaylaCharky
 * Name: Xiuhong Bai ID: 40044304 Email: baixiuhong@hotmail.com GitHub: BaiXiuhong
 * Name: Shahid Khan ID: 40096882 Email: kahn9654@gmail.com GitHub: shahidkhhan
+* Name: Liviu Zana ID: 27733410 Email: liv.zana@gmail.com GitHub: liviu-zana
 
 # Technologies
 
