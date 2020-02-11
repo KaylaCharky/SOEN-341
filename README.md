@@ -23,4 +23,4 @@ Additional features are still to be decided.
 # Technologies
 
 * FrontEnd - React, bootstrap
-* Backend - Node.JS
+* Backend - Node.JS, Express
