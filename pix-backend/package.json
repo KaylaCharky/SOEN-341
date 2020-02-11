@@ -1,10 +1,10 @@
 {
-  "name": "still-brushlands-43508",
+  "name": "pix-backend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "engines": {
-    "node": "12.x",
+    "node": "8.1.1",
     "npm": "5.0.3"
   },
   "scripts": {
