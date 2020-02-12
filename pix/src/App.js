@@ -11,7 +11,6 @@ import Navigation from './components/Navigation';
 
 function App() {
   return (
-    
       <BrowserRouter>
         <div>
           <Navigation />
@@ -23,7 +22,6 @@ function App() {
            </Switch>
         </div> 
       </BrowserRouter>
-    
   );
 }
 
