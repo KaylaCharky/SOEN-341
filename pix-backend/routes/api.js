@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const User = require('../models/user');
 
 //get the list of users form the database
 router.get('/profile', function(req,res){
@@ -8,10 +9,8 @@ router.get('/profile', function(req,res){
 
 //adding a new user to the database
 router.post('/profile', function(req,res){
-    console.log(req.body);
-    res.send({
-        type: 'POST',
-        name: req.body.name
+    User.create(req.body).then(function(user){
+        res.send(user);
     });
 });
 
