@@ -1,0 +1,101 @@
+.navBar {
+  background: rgb(255, 255, 255);
+  height: 2cm;
+  text-align: center;
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+  border-bottom-color: rgb(153, 153, 153);
+}
+
+
+
+#profile.root {
+  background: rgb(245, 245, 245);
+  align-content: center;
+  height: 356cm;
+  margin-left: 6cm;
+  margin-right: 6cm;
+}
+
+
+#profile.proPic {
+  background: rgb(245, 245, 245);
+  align-content: center;
+  height: 6cm;
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+  border-bottom-color: rgb(153, 153, 153);
+  text-align: center;
+}
+
+#proPic.logout {
+  position: relative;
+  left: 400px;
+  top: 189px;
+}
+
+#profile.proInfo {
+  background: rgb(245, 245, 245);
+  align-content: center;
+  height: 1.5cm;
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+  border-bottom-color: rgb(153, 153, 153);
+  text-align: center;
+}
+
+#profile.pictures {
+  background: rgb(245, 245, 245);
+  align-content: center;
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+  border-bottom-color: rgb(153, 153, 153);
+  text-align: center;
+}
+
+#pictures.one {
+  background: rgb(245, 245, 245);
+  align-content: center;
+  border-style: solid;
+  border-width: thin;
+  border-color: rgb(153, 153, 153);
+  text-align: center;
+  width: 6cm;
+  height: 6.2cm;
+}
+
+#pictures.two {
+  background: rgb(245, 245, 245);
+  align-content: center;
+  border-style: solid;
+  border-width: thin;
+  border-color: rgb(153, 153, 153);
+  text-align: center;
+  margin-left: 6.1cm;
+  width: 6cm;
+  height: 6.2cm;
+}
+div.profile {
+  background: rgb(245, 245, 245);
+}
+div.gallery {
+  margin: 6px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 7.5cm;
+  height: 8cm;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
