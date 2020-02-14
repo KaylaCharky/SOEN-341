@@ -5,7 +5,10 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
     name: {
         type: String,
-        required: [true, 'Name field is required']
+        required: [true, 'Name field is required'],
+        unique: true,
+        trim: true,
+        minlength: 3
     },
     displayName: {
         type: String,
@@ -13,6 +16,6 @@ const UserSchema = new Schema({
     }
 });
 
-const User = mongoose.model('user', UserSchema);
+const User = mongoose.model('User', UserSchema);
 
 module.exports = User;

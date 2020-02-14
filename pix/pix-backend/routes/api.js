@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../models/user');
+const User = require('../models/user.model');
 
 //get the list of users form the database
 router.get('/profile/:id', function(req,res,next){
