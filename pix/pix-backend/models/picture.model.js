@@ -6,7 +6,6 @@ const PictureSchema = new Schema({
     url: {
         type: String,
         required: [true, 'picture url field is required'],
-        unique: true,
         trim: true,
     },
     owner: {
