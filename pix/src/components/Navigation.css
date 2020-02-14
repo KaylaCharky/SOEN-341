@@ -7,6 +7,8 @@
   border-bottom-color: rgb(153, 153, 153);
 }
 
+
+
 #profile.root {
   background: rgb(245, 245, 245);
   align-content: center;
@@ -14,6 +16,7 @@
   margin-left: 6cm;
   margin-right: 6cm;
 }
+
 
 #profile.proPic {
   background: rgb(245, 245, 245);
