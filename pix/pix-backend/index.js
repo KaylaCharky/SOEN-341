@@ -1,22 +1,16 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const cors = require('cors');
 const mongoose = require('mongoose');
-
-require('dotenv').config();
 
 const app = express();
 
-const uri = process.env.ATLAS_URI;
 //connect to mongo DB
-mongoose.connect(uri, {useUnifiedTopology: true, useNewUrlParser:true}).catch(err => console.log(err));
+mongoose.connect('mongodb://localhost/profile', {useUnifiedTopology: true, useNewUrlParser:true}).catch(err => console.log(err));
 mongoose.Promise = global.Promise;
 
-app.use(cors());
-app.use(express.json());
+app.use(express.static('public'));
 
 app.use(bodyParser.json());
-
 
 //error handling middleware
 app.use(function(err, req,res,next){

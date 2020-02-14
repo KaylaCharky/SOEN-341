@@ -9,6 +9,10 @@ const PictureSchema = new Schema({
         unique: true,
         trim: true,
     },
+    owner: {
+        type: String,
+        trim: true
+    }
 });
 
 const Picture = mongoose.model('Picture', PictureSchema);
