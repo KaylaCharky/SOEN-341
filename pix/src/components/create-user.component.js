@@ -49,7 +49,7 @@ onSubmit(e){
     console.log('this is where you do the API call');
 
     axios.post('http://localhost:8080/users/add', user)
-    .then(res => console.log(res.data));
+    .then(res => console.log(user.data));
     
     window.location = '/login';
 }

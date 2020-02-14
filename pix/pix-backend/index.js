@@ -17,7 +17,6 @@ app.use(express.json());
 
 app.use(bodyParser.json());
 
-// app.use('/api', require('./routes/api'));
 
 //error handling middleware
 app.use(function(err, req,res,next){
@@ -32,6 +31,9 @@ app.get('/', function(req, res){
 
 const usersRouter = require('./routes/users');
 app.use('/users', usersRouter);
+
+const picturesRouter = require('./routes/pictures');
+app.use('/pictures', picturesRouter);
 
 app.listen(8080, function(){
     console.log('now listening for requests');
