@@ -1,14 +1,20 @@
 import React from 'react';
 import InputForm from './InputForm/InputForm.js';
+import ButtonSubmit from './Buttons/ButtonSubmit';
+import InputFormPassword from './InputPassword/InputFormPassword';
+import './Home.css';
 
  
 const home = () => {
     return (
-       <div>
-          <h1>Home</h1>
-           <p>Where the login authentication will take place
-               <InputForm justtry="Email:"/>
-               <InputForm input="Hello:"/>
+       <div class="Base">
+          <h1>Sign In</h1>
+           <p>
+               <InputForm />
+               <br/>
+               <InputFormPassword />
+               <br/>
+               <ButtonSubmit />
                
            </p>
        </div>

@@ -1,5 +1,4 @@
 import React from 'react';
-import './InputForm.css';
  
 const InputForm = () => {
     return (
@@ -7,7 +6,7 @@ const InputForm = () => {
           <form>
             <label>
                Email: <br/>
-              <input type="text" name="email"/>
+              <input type="text" name="email" placeholder="Enter email"/>
             </label>
           </form>
        </div>
