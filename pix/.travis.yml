@@ -1,0 +1,17 @@
+language: node_js
+node_js: -12.14.1
+cache: npm
+
+install:
+  - npm ci
+
+script:
+  - npm test
+  - npm run build
+
+deploy:
+  proder: pages
+  skip=cleanup: true
+  github-token: $GITHUB_TOKEN
+  on:
+    branch: TravisCi_issue32
