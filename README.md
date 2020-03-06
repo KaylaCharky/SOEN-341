@@ -22,5 +22,5 @@ Additional features are still to be decided.
 
 # Technologies
 
-* FrontEnd - React, bootstrap
-* Backend - Node.JS, Express
+* FrontEnd - HTML5, Jinja 2, bootstrap
+* Backend - Flask, Python
