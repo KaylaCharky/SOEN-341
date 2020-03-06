@@ -16,33 +16,15 @@
           </div>
         {% endif %}
     </div>
-    <div>
-        <form method="POST" action="">
-                {{ form.hidden_tag() }}
-                <fieldset class="form-group">
-                    <legend>Comment</legend>
-                    <div class="form-group">
-                        {{ form.comment.label(class="form-control-label") }}
-                        {% if form.comment.errors %}
-                                {{ form.comment(class="form-control form-control-lg is-invalid") }}
-                            <div class="invalid-feedback">
-                                {% for error in form.comment.errors %}
-                                        <span>{{ error }}</span>
-                                {% endfor %}
-                            </div>
-                        {% else %}
-                            {{ form.comment(class="form-control form-control-lg") }}
-                        {% endif %}
-                    </div>
-                </fieldset>
-            <div class="form-group">
-                {{ form.submit(class="btn btn-outline-info") }}
-            </div>
-        </form>
-    </div>
 
     <h2 class="article-title">{{ post.title }}</h2>
     <p class="article-content">{{ post.content }}</p>
+
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            <a class="ml-2" href="{{ url_for('comment', post_id=post.id) }}">Add Comment</a>
+        </small>
+    </div>
 
     {% if post.comments %}
         {% if post.comments.count() > 0 %}
