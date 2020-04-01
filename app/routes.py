@@ -8,14 +8,16 @@ from app.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm, 
 from flask_login import login_user, current_user, logout_user, login_required
 
 
-@app.route('/home')
-@app.route('/')
+@app.route('/feed')
 def hello_world():
+    if not current_user.is_authenticated:
+        return redirect(url_for('register'))
     page = request.args.get('page', 1, type=int)
     posts = Post.query.order_by(Post.date_posted.desc())
     return render_template('home.html', posts=posts)
 
 
+@app.route('/')
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
