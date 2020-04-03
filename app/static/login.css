@@ -1,0 +1,54 @@
+.nav-item {
+    border: 2px solid white;
+    border-radius: 25px;
+    color: white;
+ }
+ 
+ body
+ {
+    background-color: whitesmoke;
+ }
+ 
+ registerDiv 
+ {
+    color: red;
+ }
+ 
+ btn{
+    background-color: pink; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+ 
+ }
+ 
+ button {
+    background-color: pink; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+ 
+ 
+ }
+ 
+ form-group {
+    background-color: pink; /* Green */
+    border: black;
+    color: red;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+ 
+ 
+ 
+ }
