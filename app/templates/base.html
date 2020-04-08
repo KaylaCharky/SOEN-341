@@ -1,64 +1,101 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        {% block head %}
-            <meta charset="UTF-8">
-            {% block title %}<title>PIX</title>{% endblock title %}
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-            <link rel="stylesheet" text="type/css" href="{{url_for ('static', filename='main.css')}}">
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>   
-            {% endblock head %}
-           
-        </head>
-    <body>
+  <head>
+    {% block head %}
+    <meta charset="UTF-8" />
+    {% block title %}
+    <title>PIX</title>
+    {% endblock title %}
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      text="type/css"
+      href="{{url_for ('static', filename='main.css')}}"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    {% endblock head %}
+  </head>
+  <body>
     {% block navbar %}
-        <header>
-            <nav class="navbar navbar-expand-md navbar-dark sticky-top container" style="background-color: black">
-                <a class="navbar-brand" href="/">PIX</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarToggle">
-                    <ul class="navbar-nav">
-                          {% if current_user.is_authenticated %}
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url_for('new_post') }}">New Post</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url_for('account') }}">Account</a>
-                            </li>
-                            <li>
-                                <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
-                            </li>
-                        {% else %}
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ url_for('register') }}">Register</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ url_for('login') }}">Login</a>
-                                </li>
-                        {% endif %}
-                    </ul>
-                </div>
-            </nav>
-        </header>
+    <header>
+      <nav
+        class="navbar navbar-expand-md navbar-dark sticky-top container"
+        style="background-color: black;"
+      >
+        <a class="navbar-brand" href="/">PIX</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#collapsibleNavbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggle">
+          <ul class="navbar-nav">
+            {% if current_user.is_authenticated %}
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="{{ url_for('new_post') }}"
+                style="color: white;"
+                >New Post</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="{{ url_for('account') }}"
+                style="color: white;"
+                >Account</a
+              >
+            </li>
+            <li>
+              <a
+                class="nav-link"
+                href="{{ url_for('logout') }}"
+                style="color: white;"
+                >Logout</a
+              >
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="{{ url_for('register') }}"
+                style="color: white;"
+                >Register</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="{{ url_for('login') }}"
+                style="color: white;"
+                >Login</a
+              >
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </nav>
+    </header>
     {% endblock %}
     <div class="container">
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                {% for category,message in messages %}
-                        <div class="alert alert-{{ category }}">
-                            {{ message }}
-                        </div>
-                {% endfor %}
-            {%  endif %}
-        {% endwith %}
-        {% block content %}
-            <p> hi</p>
-        {% endblock content %}
+      {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %} {% for category,message in messages %}
+      <div class="alert alert-{{ category }}">
+        {{ message }}
+      </div>
+      {% endfor %} {% endif %} {% endwith %} {% block content %}
+      <p>hi</p>
+      {% endblock content %}
     </div>
-    </body>
+  </body>
 </html>
