@@ -17,8 +17,8 @@ def hello_world():
     return render_template('home.html', posts=posts)
 
 
-@app.route('/register', methods=['GET', 'POST'])
 @app.route('/')
+@app.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
         return redirect(url_for('hello_world'))

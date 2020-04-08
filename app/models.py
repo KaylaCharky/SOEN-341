@@ -38,10 +38,6 @@ class User(db.Model, UserMixin):
         return self.followed.filter(
             followers.c.followed_id == user.id).count() > 0
 
-    #def get_users_i_follow(self):
-
-    #    return self.followed.filter(follo)
-
     def __repr__(self):
         user = {self.username}
         img = {self.image_file}
