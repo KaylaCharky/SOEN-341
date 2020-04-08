@@ -4,7 +4,7 @@ from PIL import Image
 from flask import render_template, flash, redirect, url_for, request, abort
 from app import app, db, bcrypt
 from app.models import User, Post, Comment
-from app.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm, CommentForm
+from app.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm, CommentForm, SearchForm
 from flask_login import login_user, current_user, logout_user, login_required
 
 
@@ -179,3 +179,14 @@ def unfollow(username):
     db.session.commit()
     flash('You are not following {}.'.format(username))
     return redirect(url_for('hello_world', username=username))
+
+
+@app.route('/search', methods=['GET', 'POST'])
+@login_required
+def search():
+    form = SearchForm()
+    if form.validate_on_submit():
+        if form.search.data:
+            user = form.search.data
+            return redirect(url_for('user_posts', username=user))
+    return render_template('search.html', form=form)
