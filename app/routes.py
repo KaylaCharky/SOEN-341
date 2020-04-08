@@ -122,11 +122,12 @@ def post(post_id):
 def comment(post_id):
     form = CommentForm()
     if form.validate_on_submit():
-        comment = Comment(comment=form.comment.data)
+        comment = Comment(content=form.content.data, post_id=post_id, author=current_user.username)
         db.session.add(comment)
         db.session.commit()
-    flash('your comment has been added', 'success')
-    return render_template('comment.html')
+        flash('Your comment has been added!', 'success')
+        return redirect(url_for('post', post_id=post_id))
+    return render_template('comment.html', form=form)
 
 
 @app.route("/post/<int:post_id>/delete", methods=['POST'])
