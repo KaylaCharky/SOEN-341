@@ -1,6 +1,7 @@
-{% extends "base.html" %} {% block content %}
-<link rel="stylesheet" text="type/css" href="{{url_for ('static', filename='main.css')}}"/>
-<div class="post-view">
+{% extends "base.html" %} 
+{% block content %}
+
+  <div class="post-view">
   <img
     src="{{ url_for('static', filename='profile_pics/' + user.image_file) }}"
   />
@@ -10,13 +11,13 @@
   <p><strong><a href="{{ url_for('follow', username=user.username) }}">Follow</a></strong></p>
   {% else %}
   <p><strong><a href="{{ url_for('unfollow', username=user.username) }}">Unfollow</a></strong></p>
-  {% endif %}
+  {% endif %
 
-    <hr>
+   <hr>
     {% for post in posts %}
             <h2><strong><a href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></strong></h2>
             <img src="{{ url_for('static', filename='posts/' + post.post_image) }}" style="width:600px;height:400px;">
             <p>{{ post.content }}</p>
      {% endfor %}
-  {% endblock content %}
-</div>
+  </div>
+{% endblock content %}
