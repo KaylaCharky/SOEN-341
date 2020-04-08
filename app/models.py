@@ -38,6 +38,10 @@ class User(db.Model, UserMixin):
         return self.followed.filter(
             followers.c.followed_id == user.id).count() > 0
 
+    #def get_users_i_follow(self):
+
+    #    return self.followed.filter(follo)
+
     def __repr__(self):
         user = {self.username}
         img = {self.image_file}
@@ -51,7 +55,7 @@ class Post(db.Model):
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     content = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    comments = db.relationship('Comment', backref='title', lazy='dynamic')
+    comments = db.relationship('Comment', backref='parent_post', lazy='dynamic')
 
     def get_comments(self):
         return Comment.query.filter_by(post_id=self.id).order_by(Comment.date_posted.desc())
@@ -59,13 +63,15 @@ class Post(db.Model):
     def __repr__(self):
         title = {self.title}
         date = {self.date_posted}
-        return "%s %s" % (title, date)
+        comments = {self.comments}
+        return "%s %s %s" % (title, date, comments)
 
 
 class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow, index=True)
     content = db.Column(db.String(140))
+    author = db.Column(db.String(32))
     post_id = db.Column(db.Integer, db.ForeignKey('post.id'))
 
     def __repr__(self):
