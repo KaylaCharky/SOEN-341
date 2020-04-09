@@ -1,40 +1,48 @@
-{% extends "base.html" %}
-{% block content %}
-    <div>
-        <a class="mr-2" href="{{ url_for('user_posts', username=post.author.username) }}">{{ post.author.username }}</a>
-        {% if post.author == current_user %}
-          <div>
-            <form action="{{ url_for('delete_post', post_id=post.id) }}" method="POST">
-                <input class="btn btn-danger" type="submit" value="Delete">
-            </form>
-          </div>
-        {% else %}
+{% extends "base.html" %} {% block content %}
+<link
+  rel="stylesheet"
+  text="type/css"
+  href="{{url_for ('static', filename='home.css')}}"
+/>
+<div>
+  <a
+    class="mr-2"
+    href="{{ url_for('user_posts', username=post.author.username) }}"
+    >{{ post.author.username }}</a
+  >
+  {% if post.author == current_user %}
+  <div>
+    <form action="{{ url_for('delete_post', post_id=post.id) }}" method="POST">
+      <input class="btn btn-danger" type="submit" value="Delete" />
+    </form>
+  </div>
+  {% else %} {% endif %}
+</div>
+<div class="posts">
+  <h2 class="article-title">{{ post.title }}</h2>
+  <img
+    src="{{ url_for('static', filename='posts/' + post.post_image) }}"
+    style="width: 400px; height: 400px;"
+  />
+  <br />
+  <a class="mr-2" style="font-weight: bold;">{{ post.author.username }}</a>
+  {{ post.content }}
+</div>
+<div class="border-top pt-3">
+  <small class="text-muted">
+    <a class="ml-2" href="{{ url_for('comment', post_id=post.id) }}"
+      >Add Comment</a
+    >
+  </small>
+</div>
 
-        {% endif %}
-    </div>
+<hr />
 
-    <h2 class="article-title">{{ post.title }}</h2>
-    <img src="{{ url_for('static', filename='posts/' + post.post_image) }}" style="width:600px;height:400px;">
-    <p class="article-content">{{ post.content }}</p>
-
-    <div class="border-top pt-3">
-        <small class="text-muted">
-            <a class="ml-2" href="{{ url_for('comment', post_id=post.id) }}">Add Comment</a>
-        </small>
-    </div>
-
-    <hr>
-
-    {% if post.comments %}
-        {% if post.comments.count() > 0 %}
-            <h2>Comments</h2>
-                {% for comment in post.comments %}
-                    <p>{{ comment.author }}</p>
-                    <br>
-                    <p>{{ comment.content }}</p>
-                    <hr>
-                {% endfor %}
-        {% endif %}
-    {% endif %}
-
-{% endblock content %}
+{% if post.comments %} {% if post.comments.count() > 0 %}
+<h2>Comments</h2>
+{% for comment in post.comments %}
+<br />
+<a class="mr-2" style="font-weight: bold;">{{ comment.author }}</a>
+{{ comment.content }}
+<hr />
+{% endfor %} {% endif %} {% endif %} {% endblock content %}
