@@ -13,7 +13,7 @@ def hello_world():
     if not current_user.is_authenticated:
         return redirect(url_for('register'))
     page = request.args.get('page', 1, type=int)
-    posts = Post.query.order_by(Post.date_posted.desc())
+    posts = current_user.followed_posts()
     return render_template('home.html', posts=posts)
 
 
