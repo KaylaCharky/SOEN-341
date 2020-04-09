@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+<link rel="stylesheet" text="type/css" href="{{url_for ('static', filename='main.css')}}">
  <div class="content-section">
      <div>
          <img src="{{ image_file }}">
@@ -9,7 +10,7 @@
          </div>
      </div>
 
-    <div>
+    <div class="info">
         <form method="POST" action="" enctype="multipart/form-data">
                 {{ form.hidden_tag() }}
                 <fieldset class="form-group">
