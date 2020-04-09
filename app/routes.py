@@ -4,7 +4,7 @@ from PIL import Image
 from flask import render_template, flash, redirect, url_for, request, abort
 from app import app, db, bcrypt
 from app.models import User, Post, Comment
-from app.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm, CommentForm
+from app.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm, CommentForm, SearchForm
 from flask_login import login_user, current_user, logout_user, login_required
 
 
@@ -13,12 +13,12 @@ def hello_world():
     if not current_user.is_authenticated:
         return redirect(url_for('register'))
     page = request.args.get('page', 1, type=int)
-    posts = Post.query.order_by(Post.date_posted.desc())
+    posts = current_user.followed_posts()
     return render_template('home.html', posts=posts)
 
 
-@app.route('/register', methods=['GET', 'POST'])
 @app.route('/')
+@app.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
         return redirect(url_for('hello_world'))
@@ -179,3 +179,14 @@ def unfollow(username):
     db.session.commit()
     flash('You are not following {}.'.format(username))
     return redirect(url_for('hello_world', username=username))
+
+
+@app.route('/search', methods=['GET', 'POST'])
+@login_required
+def search():
+    form = SearchForm()
+    if form.validate_on_submit():
+        if form.search.data:
+            user = form.search.data
+            return redirect(url_for('user_posts', username=user))
+    return render_template('search.html', form=form)
