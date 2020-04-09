@@ -1,25 +1,32 @@
 {% extends "base.html" %} {% block content %}
 
+<link
+  rel="stylesheet"
+  text="type/css"
+  href="{{url_for ('static', filename='home.css')}}"
+/>
 <img
   src="{{ url_for('static', filename='profile_pics/' + user.image_file) }}"
+  style="width: 50px; height: 50px; border-radius: 50px;"
 />
 
-<p>Posts by {{ user.username }}</p>
+Posts by <a class="mr-2" style="font-weight: bold;">{{ user.username }}</a> {%
+if not current_user.is_following(user) %}
+<a href="{{ url_for('follow', username=user.username) }}">Follow</a>
+{% else %}
+<a href="{{ url_for('unfollow', username=user.username) }}">Unfollow</a>
+{% endif %}
 
-    {% if not current_user == user %}
-        {% if not current_user.is_following(user) %}
-            <p><a href="{{ url_for('follow', username=user.username) }}">Follow</a></p>
-        {% else %}
-            <p><a href="{{ url_for('unfollow', username=user.username) }}">Unfollow</a></p>
-        {% endif %}
-    {% endif %}
-
-    <hr>
-
-    {% for post in posts %}
-            <h2><a href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h2>
-            <img src="{{ url_for('static', filename='posts/' + post.post_image) }}" style="width:600px;height:400px;">
-            <p>{{ post.content }}</p>
-    {% endfor %}
-
-{% endblock content %}
+<hr />
+{% for post in posts %}
+<div class="posts">
+  <h2><a href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h2>
+  <img
+    src="{{ url_for('static', filename='posts/' + post.post_image) }}"
+    style="width: 400px; height: 400px;"
+  />
+  <br />
+  <a class="mr-2" style="font-weight: bold;">{{ post.author.username }}</a>
+  {{ post.content }}
+</div>
+{% endfor %} {% endblock content %}
